@@ -23,6 +23,26 @@ const Home = () => {
             Submit Request
           </button>
         </div>
+        <div className="content-cards">
+          <div className="content-card">
+            <h2 className="card-heading">Submit a request</h2>
+            <p className="card-description">
+              Manage events, submit requests, and collaborate efficiently.
+            </p>
+          </div>
+          <div className="content-card">
+            <h2 className="card-heading">View events calendar</h2>
+            <p className="card-description">
+              Manage events, submit requests, and collaborate efficiently.
+            </p>
+          </div>
+          <div className="content-card">
+            <h2 className="card-heading">View my requests</h2>
+            <p className="card-description">
+              Manage events, submit requests, and collaborate efficiently.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
