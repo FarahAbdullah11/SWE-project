@@ -1,0 +1,111 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url('/Backgrondnu.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 58, 138, 0.3) 0%,
+    rgba(30, 64, 175, 0.2) 50%,
+    rgba(30, 58, 138, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 60px 80px;
+  color: white;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+}
+
+.submit-request-button {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.submit-request-button:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.5);
+}
+
+.submit-request-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 40px 30px;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .submit-request-button {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+}
