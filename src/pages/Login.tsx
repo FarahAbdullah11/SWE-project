@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import './Login.css'
 
@@ -7,30 +6,22 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const { login, isAuthenticated, user } = useAuth()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    // If already authenticated, redirect to appropriate dashboard
-    if (isAuthenticated && user) {
-      if (user.role === 'admin') {
-        navigate('/admin', { replace: true })
-      } else if (user.role === 'club_leader') {
-        navigate('/club-leader', { replace: true })
-      }
-    }
-  }, [isAuthenticated, user, navigate])
+  const { login } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    setSuccess('')
     setIsLoading(true)
 
     try {
-      const success = await login(email, password)
-      if (success) {
-        // Navigation will happen via useEffect when user state updates
+      const loginSuccess = await login(email, password)
+      if (loginSuccess) {
+        setSuccess('Login successful!')
+        setEmail('')
+        setPassword('')
       } else {
         setError('Invalid email or password. Please try again.')
       }
@@ -77,6 +68,7 @@ const Login = () => {
               Forgot your password?
             </a>
             {error && <div className="error-message">{error}</div>}
+            {success && <div className="success-message">{success}</div>}
             <button type="submit" className="login-button" disabled={isLoading}>
               {isLoading ? 'Logging in...' : 'Log In'}
             </button>
